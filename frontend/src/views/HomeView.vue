@@ -9,7 +9,7 @@ export default {
         {
           id: 1,
           name: 'Konnor',
-          age: '34',
+          age: '44',
           country: 'Ireland',
           fightsNum: 56,
           elo: 1583,
