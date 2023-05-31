@@ -4,6 +4,8 @@ export default {
     items: Array
   },
 }
+
+
 </script>
 
 <template>
@@ -14,6 +16,7 @@ export default {
         <th>Country</th>
         <th>Number of Fights</th>
         <th>Age</th>
+        <th>weightClass</th>
         <th>Elo Ranking</th>
     </tr>
     <tr v-for="(row, index) in items">
@@ -22,6 +25,7 @@ export default {
         <td>{{ row.country}}</td>
         <td>{{ row.fightsNum }}</td>
         <td>{{ row.age }}</td>
+        <td>{{ row.weightClass }}</td>
         <td>{{ row.elo }}</td>
     </tr>
     

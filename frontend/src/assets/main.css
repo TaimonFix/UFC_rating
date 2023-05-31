@@ -1,1 +1,46 @@
 @import './base.css';
+body {
+    font-family: 'Lato', sans-serif;}
+
+h1 {
+    text-align: center;
+    margin: 0px;
+    padding: 5px;
+}
+
+table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.hat {
+    display: block; 
+    height: 50px; 
+    background-color: rgba(146, 142, 142, 0.571);
+    text-shadow: 1px 1px 1px red;
+    margin-bottom: 10px;
+    box-shadow: 1px 5px 100px #ddd;
+   }
+
+.filters {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
