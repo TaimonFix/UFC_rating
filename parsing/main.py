@@ -88,8 +88,8 @@ for i in range(len(links)):
 
         fights.append(res)
 
-    for i in fights:    
-        data.append(i)
+    for j in fights:    
+        data.append(j)
     print(len(data))
 
 # print(data)
@@ -98,8 +98,9 @@ for i in range(len(links)):
 
 # ИТОГОВЫЙ ВЫВОД
 with open('parsing/data.json', 'w') as file:
-    for i in data:
-        json.dump(i, file, indent=4, ensure_ascii=False)
+    # for i in data:
+        #json.dump(i, file, indent=4, ensure_ascii=False)
+    json.dump(data, file, indent=4, ensure_ascii=False)
 
 
 
