@@ -1,3 +1,5 @@
+package elo;
+
 public class TheEloAlgorithm {
     private double expectedNumber; // ожидаемое количество очков, которое наберёт игрок
     private double resultNumber; // исход: 1 - победа, 0.5 - ничья, 0 - поражение
