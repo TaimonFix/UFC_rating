@@ -45,4 +45,14 @@ public class Rating {
     public void setRating(String rating) {
         this.rating = rating;
     }
+
+    @Override
+    public String toString() {
+        return "Rating{" +
+                "fighter='" + fighter + '\'' +
+                ", weightClass='" + weightClass + '\'' +
+                ", fightCount='" + fightCount + '\'' +
+                ", rating='" + rating + '\'' +
+                '}';
+    }
 }

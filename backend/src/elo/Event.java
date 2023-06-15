@@ -34,4 +34,13 @@ public class Event {
     public void setWeightClass(String weightClass) {
         this.weightClass = weightClass;
     }
+
+    @Override
+    public String toString() {
+        return "Event{" +
+                "winner='" + winner + '\'' +
+                ", loser='" + loser + '\'' +
+                ", weightClass='" + weightClass + '\'' +
+                '}';
+    }
 }

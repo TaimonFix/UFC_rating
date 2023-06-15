@@ -6,11 +6,17 @@ public class TheEloAlgorithm {
     private int ratingA; // рейтинг игрока А
     private int ratingB; // рейтинг игрока B
 
+    public TheEloAlgorithm(double resultNumber, int ratingA, int ratingB) {
+        this.resultNumber = resultNumber;
+        this.ratingA = ratingA;
+        this.ratingB = ratingB;
+    }
+
     private static double getExpectedNumber(int ratingA, int ratingB) {
         return 1 / (1 + 10 * (ratingB - ratingA) / 400);
     }
 
-    private static int getNewRating(int ratingA, int resultNumber, int expectedNumber, int fightCount) {
+    private static int setNewRating(int ratingA, int resultNumber, int expectedNumber, int fightCount) {
         int k; // коэффициент, зависящий от рейтинга игрока
 
         if (ratingA >= 2400) {
