@@ -1,6 +1,8 @@
 package elo;
 
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -11,9 +13,30 @@ public class Main {
 
 //        System.out.println("Root: " + root.toString());
 
-        List<Event> list = root.getEvent();
-        System.out.println(root.getEvent().get(0));
-        System.out.println(root.getEvent().get(0).getWinner());
+        HashMap<String, Integer> map = root.getFightersMap();
+
+        System.out.println(map);
+
+        System.out.println(map.get("Conor McGregor"));
+
+        List<String> weightClassList = new ArrayList<>();
+        System.out.println(root.getWeightClasses(weightClassList));
+
+        HashMap<String, Integer> ratingMap = new HashMap<>();
+        ratingMap = root.ratingELO();
+
+        System.out.println(ratingMap);
+
+        System.out.println(ratingMap.get("Khabib Nurmagomedov"));
+//        System.out.println(ratingMap.get("Jon Jones"));
+//        System.out.println(ratingMap.get("Georges St-Pierre"));
+
+        System.out.println(Collections.max(ratingMap.values()));
+
+
+//        List<Event> list = root.getEvent();
+//        System.out.println(root.getEvent().get(0));
+//        System.out.println(root.getEvent().get(0).getWinner());
 
 //        System.out.println(list.get(0).getWinner());
 //

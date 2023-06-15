@@ -18,8 +18,20 @@ public class JsonSimpleParser {
             JSONArray eventJsonArray = (JSONArray) parser.parse(reader);
 
             List<Event> eventList = new ArrayList<>();
-            for(Object it: eventJsonArray) {
-                JSONObject eventObject = (JSONObject) it;
+//            for(Object it: eventJsonArray) {
+//                JSONObject eventObject = (JSONObject) it;
+//
+//                String winner = (String) eventObject.get("Winner");
+//                String loser = (String) eventObject.get("Loser");
+//                String weightClass = (String) eventObject.get("Weight class");
+//
+//                Event event = new Event(winner, loser, weightClass);
+//
+//                eventList.add(event);
+//            }
+
+            for(int i = eventJsonArray.size() - 1; i >= 0; i--) {
+                JSONObject eventObject = (JSONObject) eventJsonArray.get(i);
 
                 String winner = (String) eventObject.get("Winner");
                 String loser = (String) eventObject.get("Loser");
