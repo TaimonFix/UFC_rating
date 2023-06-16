@@ -83,11 +83,23 @@ for i in range(len(links)):
     for row in table_day:
         res = {}
         winner, loser = row.find_all(class_="b-link b-link_style_black")
-        weight_class = row.find_all('p', class_="b-fight-details__table-text")
-        res = {'Winner' : winner.text.strip(),'Loser' : loser.text.strip(),'Weight class' : weight_class[11].text.strip()}
+        colums = row.find_all('p', class_="b-fight-details__table-text")
+
+        if colums[0].text.strip() == "nc":
+            break
+        elif colums[0].text.strip() == "draw":
+            f = True
+            weight_class = colums[12].text.strip()
+        elif colums[0].text.strip() == 'win':
+            f = False
+            weight_class = colums[11].text.strip()
+
+
+        res = {'Favorite' : winner.text.strip(),'Underdog' : loser.text.strip(),'Weight class' : weight_class, 'Draw': f}
 
         fights.append(res)
 
+        print(fights)
     for j in fights:    
         data.append(j)
     print(len(data))
@@ -97,7 +109,7 @@ for i in range(len(links)):
 
 
 # ИТОГОВЫЙ ВЫВОД
-with open('parsing/data.json', 'w') as file:
+with open('parsing/data_new.json', 'w') as file:
     # for i in data:
         #json.dump(i, file, indent=4, ensure_ascii=False)
     json.dump(data, file, indent=4, ensure_ascii=False)
