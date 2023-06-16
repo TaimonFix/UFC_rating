@@ -95,7 +95,7 @@ for i in range(len(links)):
             weight_class = colums[11].text.strip()
 
 
-        res = {'Favorite' : winner.text.strip(),'Underdog' : loser.text.strip(),'Weight class' : weight_class, 'Draw': f}
+        res = {'Winner' : winner.text.strip(),'Loser' : loser.text.strip(),'Weight class' : weight_class, 'Draw': f}
 
         fights.append(res)
 
