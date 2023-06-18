@@ -1,7 +1,6 @@
 package elo;
 
 import java.util.HashMap;
-import java.util.List;
 
 public class Event {
     private String winner;
@@ -68,8 +67,6 @@ public class Event {
     }
 
     public HashMap<String, Integer> rating(HashMap<String, Integer> fightersMap, HashMap<String, Integer> ratingMap) {
-//        HashMap<String, Integer> ratingMap = new HashMap<>();
-
 
         if (!ratingMap.containsKey(winner)) {
             ratingMap.put(winner, 200);
