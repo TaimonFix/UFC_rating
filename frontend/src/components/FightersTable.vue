@@ -23,7 +23,7 @@ export default {
         <td>{{ index + 1 }}</td>
         <td>{{ row.name }}</td>
         <!-- <td>{{ row.country}}</td> -->
-        <td>{{ row.fightsNum }}</td>
+        <td>{{ row.fightNum }}</td>
         <!-- <td>{{ row.age }}</td> -->
         <td>{{ row.weightClass }}</td>
         <td>{{ row.elo }}</td>
