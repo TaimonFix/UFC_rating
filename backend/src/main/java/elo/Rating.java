@@ -4,10 +4,10 @@ public class Rating {
 
     private String fighter;
     private String weightClass;
-    private String fightCount;
-    private String rating;
+    private int fightCount;
+    private int rating;
 
-    public Rating(String fighter, String weightClass, String fightCount, String rating) {
+    public Rating(String fighter, String weightClass, int fightCount, int rating) {
         this.fighter = fighter;
         this.weightClass = weightClass;
         this.fightCount = fightCount;
@@ -26,23 +26,25 @@ public class Rating {
         return weightClass;
     }
 
+    public int getRating() {
+        return rating;
+    }
+
     public void setWeightClass(String weightClass) {
         this.weightClass = weightClass;
     }
 
-    public String getFightCount() {
+    public int getFightCount() {
         return fightCount;
     }
 
-    public void setFightCount(String fightCount) {
+    public void setFightCount(int fightCount) {
         this.fightCount = fightCount;
     }
 
-    public String getRating() {
-        return rating;
-    }
 
-    public void setRating(String rating) {
+
+    public void setRating(int rating) {
         this.rating = rating;
     }
 

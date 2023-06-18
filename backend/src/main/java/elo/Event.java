@@ -7,11 +7,13 @@ public class Event {
     private String winner;
     private String loser;
     private String weightClass;
+    private boolean draw;
 
-    public Event(String winner, String loser, String weightClass) {
+    public Event(String winner, String loser, String weightClass, boolean draw) {
         this.winner = winner;
         this.loser = loser;
         this.weightClass = weightClass;
+        this.draw = draw;
     }
 
     public String getWinner() {
@@ -38,6 +40,14 @@ public class Event {
         this.weightClass = weightClass;
     }
 
+    public boolean isDraw() {
+        return draw;
+    }
+
+    public void setDraw(boolean draw) {
+        this.draw = draw;
+    }
+
     public void putFighters(HashMap<String, Integer> fightersMap) {
         if (fightersMap.containsKey(winner)) {
             fightersMap.put(winner, fightersMap.get(winner) + 1);
@@ -52,16 +62,21 @@ public class Event {
         }
     }
 
+    public void putWeightClasses(HashMap<String, String> weightClassesMap) {
+        weightClassesMap.put(winner, weightClass);
+        weightClassesMap.put(loser, weightClass);
+    }
+
     public HashMap<String, Integer> rating(HashMap<String, Integer> fightersMap, HashMap<String, Integer> ratingMap) {
 //        HashMap<String, Integer> ratingMap = new HashMap<>();
 
 
         if (!ratingMap.containsKey(winner)) {
-            ratingMap.put(winner, 0);
+            ratingMap.put(winner, 200);
         }
 
         if (!ratingMap.containsKey(loser)) {
-            ratingMap.put(loser, 0);
+            ratingMap.put(loser, 200);
         }
 
         int ratingA = ratingMap.get(winner);
@@ -75,20 +90,33 @@ public class Event {
         int fightCountA = fightersMap.get(winner);
         int fightCountB = fightersMap.get(loser);
 
-        ratingA = elo.setNewRating(ratingA, 1, expectedNumberA, fightCountA);
-        ratingB = elo.setNewRating(ratingB, 0, expectedNumberB, fightCountB);
+        double resultNumberA;
+        double resultNumberB;
+
+        if (draw) {
+            resultNumberA = 0.5;
+            resultNumberB = 0.5;
+        } else {
+            resultNumberA = 1;
+            resultNumberB = 0;
+        }
+
+        ratingA = elo.setNewRating(ratingA, resultNumberA, expectedNumberA, fightCountA);
+        ratingB = elo.setNewRating(ratingB, resultNumberB, expectedNumberB, fightCountB);
 
         ratingMap.put(winner, ratingA);
         ratingMap.put(loser, ratingB);
 
         return ratingMap;
     }
+
     @Override
     public String toString() {
         return "Event{" +
                 "winner='" + winner + '\'' +
                 ", loser='" + loser + '\'' +
                 ", weightClass='" + weightClass + '\'' +
+                ", draw=" + draw +
                 '}';
     }
 }

@@ -1,5 +1,6 @@
 package elo;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -23,16 +24,16 @@ public class EventRoot {
         return fightersMap;
     }
 
-    public List<String> getWeightClasses(List<String> weightClassList) {
+    public HashMap<String, String> getWeightClassesMap() {
+        HashMap<String, String> weightClassesMap = new HashMap<>();
         for (Event eventObject: eventList) {
-            if (!weightClassList.contains(eventObject.getWeightClass())) {
-                weightClassList.add(eventObject.getWeightClass());
-            }
+            eventObject.putWeightClasses(weightClassesMap);
         }
-        return weightClassList;
+
+        return weightClassesMap;
     }
 
-    public HashMap<String, Integer> ratingELO() {
+    public HashMap<String, Integer> getRatingMap() {
         HashMap<String, Integer> ratingMap = new HashMap<>();
         HashMap<String, Integer> fightersMap = new HashMap<>();
 
@@ -43,6 +44,16 @@ public class EventRoot {
         }
         return ratingMap;
     }
+    public List<String> getWeightClasses() {
+        List<String> weightClassList = new ArrayList<>();
+        for (Event eventObject: eventList) {
+            if (!weightClassList.contains(eventObject.getWeightClass())) {
+                weightClassList.add(eventObject.getWeightClass());
+            }
+        }
+        return weightClassList;
+    }
+
     @Override
     public String toString() {
         return "Root{" +
