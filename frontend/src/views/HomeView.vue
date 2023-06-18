@@ -1,6 +1,6 @@
 <script>
 import FightersTable from '../components/FightersTable.vue';
-import fighters from '../components/fighters.json';
+import fighters from '../../../parsing/rating.json';
 
 
 
@@ -73,7 +73,7 @@ export default {
 
     
     sortedAndFilteredFighters() {
-      return this.filteredFighters.sort((a, b) => a.elo - b.elo)
+      return this.filteredFighters.sort((a, b) => b.elo - a.elo)
     }
   },
 
