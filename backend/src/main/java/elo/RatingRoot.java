@@ -28,7 +28,6 @@ public class RatingRoot {
             Rating rating = new Rating(fighter, weightClass, fightCount, ratingELO);
             ratingList.add(rating);
         }
-
         this.ratingList = ratingList;
     }
 

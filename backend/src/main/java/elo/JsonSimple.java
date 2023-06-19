@@ -48,9 +48,10 @@ public class JsonSimple implements Json {
     }
 
     public void pack(RatingRoot root) {
-        JSONObject jsonObject = new JSONObject();
         JSONArray jsonArray = new JSONArray();
         for (Rating rating: root.getRatingList()) {
+            JSONObject jsonObject = new JSONObject();
+
             jsonObject.put("name", rating.getFighter());
             jsonObject.put("weightClass", rating.getWeightClass());
             jsonObject.put("fightNum", rating.getFightCount());
@@ -58,8 +59,9 @@ public class JsonSimple implements Json {
             jsonArray.add(jsonObject);
         }
 
-        try(BufferedWriter writer = Files.newBufferedWriter(Paths.get("rating.json"))) {
+        try(BufferedWriter writer = Files.newBufferedWriter(Paths.get("parsing/rating.json"))) {
             writer.write(jsonArray.toJSONString());
+            System.out.println("Данные упакованы в parsing/rating.json");
         } catch (Exception e) {
             System.out.println("Packing error: " + e.toString());
         }
