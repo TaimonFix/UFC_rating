@@ -139,7 +139,6 @@ export default {
             <option value="Heavyweight">Heavyweight</option>
             <option value="Middleweight">Middleweight</option>
             <option value="Welterweight">Welterweight</option>
-            <option value="Super Heavyweight">Super Heavyweight</option>
             <option value="Light Heavyweight">Light Heavyweight</option>
             <option value="Catch Weight">Catch Weight</option>
             <option value="Featherweight">Featherweight</option>
