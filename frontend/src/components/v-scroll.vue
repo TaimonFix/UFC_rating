@@ -1,8 +1,9 @@
 <template>
-    
-    <div class="scrollTop" @click="scrollTopTop()" v-if="buttonShow">
-        <i class="fa-solid fa-circle-arrow-up" style="color: #4ce1ec;" ></i>
-    </div> 
+    <Transition name="bounce">
+        <div class="scrollTop" @click="scrollTopTop()" v-if="buttonShow">
+            <i class="fa-solid fa-circle-arrow-up" style="color: #4ce1ec;" ></i>
+        </div> 
+    </Transition>
 </template>
 
 <script>
@@ -46,8 +47,24 @@ export default {
     cursor: pointer;
     visibility: visible;
     opacity: 1;
-    transition: 0.5s;
   } 
-  
 
+  
+  .bounce-enter-active {
+    animation: bounce-in .4s;
+  }
+  .bounce-leave-active {
+    animation: bounce-in .4s reverse;
+  }
+  @keyframes bounce-in {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1.3);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
 </style>
