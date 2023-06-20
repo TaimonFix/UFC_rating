@@ -1,65 +1,24 @@
 <script>
 import FightersTable from '../components/FightersTable.vue';
 import fighters from '../../../parsing/rating.json';
-
+import vScroll from '../components/v-scroll.vue';
 
 
 
 export default {
-  components: { FightersTable },
+  components: {
+    FightersTable,
+    vScroll
+    
+  },
   data() {
     return {
       filterParams: {
-        // country: '',
         weightClass: ''
       },
 
       fighters
-    
-      //   {
-      //     id: 1,
-      //     name: 'Konnor',
-      //     age: '34',
-      //     country: 'Ireland',
-      //     fightsNum: 56,
-      //     elo: 1583,
-      //     weightClass: 'Lightweight',
-      //     fightStory: [
-      //       {
-      //         opponent: { id: 2, name: 'Khabib' },
-      //         result: 'win',
-      //         reason: 'tko'
-      //       },
-      //       {
-      //         opponent: { id: 2, name: 'Khabib' },
-      //         result: 'win',
-      //         reason: 'tko'
-      //       }
-      //     ],
-      //   },
 
-      //   {
-      //     id: 3,
-      //     name: 'Konnor',
-      //     age: '35',
-      //     country: 'USA',
-      //     fightsNum: 56,
-      //     elo: 1583,
-      //     weightClass: 'Welterweight',
-      //     fightStory: [
-      //       {
-      //         opponent: { id: 2, name: 'Khabib' },
-      //         result: 'win',
-      //         reason: 'tko'
-      //       },
-      //       {
-      //         opponent: { id: 2, name: 'Khabib' },
-      //         result: 'win',
-      //         reason: 'tko'
-      //       }
-      //     ],
-      //   }
-      //]
     }
   },
 
@@ -77,42 +36,11 @@ export default {
     }
   },
 
-  // async created() {
-  //   // Sending request
-  //   const fs = require('fs');
-  //   const path = require('path');
-  //   const result = require('../components/fighters.json')
-  //   this.fighters = result.data()
 
-  // }
 }
 
 
-// function filterTable() {
-//     var countryFilter = document.getElementById('country-filter').value;
-//     var weightFilter = document.getElementById('weight-filter').value;
-//     var ratingFilter = document.getElementById('rating-filter').value;
 
-//     var table = document.getElementById('fighter-table');
-//     var rows = table.getElementsByTagName('tr');
-
-//     for (var i = 1; i < rows.length; i++) {
-//         var row = rows[i];
-//         var country = row.getElementsByTagName('td')[2].innerText;
-//         var weight = row.getElementsByTagName('td')[3].innerText;
-//         var rating = row.getElementsByTagName('td')[5].innerText;
-
-//         var countryMatch = countryFilter === '' || country === countryFilter;
-//         var weightMatch = weightFilter === '' || weight === weightFilter;
-//         var ratingMatch = ratingFilter === '' || parseInt(rating) >= parseInt(ratingFilter);
-
-//         if (countryMatch && weightMatch && rating ) {
-//             row.style.display = ''; // show the row
-//             } else {
-//             row.style.display = 'none'; // hide the row
-//             }
-//         }
-//     }
 
 </script>
 
@@ -120,15 +48,7 @@ export default {
   <!-- фильтр -->
   <div id="filter-container">
     <div class="filters">
-      <!-- <div class="filt">
-        <label for="country-filter">Country:</label>
-        <select id="country-filter" v-model="filterParams.country">
-            <option value="">All</option>
-            <option value="Ireland">Ireland</option>
-            <option value="USA">USA</option>
-            
-        </select>
-      </div> -->
+ 
       
       <div class="filt">
         <label class="wfiltText" for="weight-filter">Weight Class:</label>
@@ -161,6 +81,6 @@ export default {
     
     
   
-  <FightersTable :items="sortedAndFilteredFighters">
-  </FightersTable>
+  <FightersTable :items="sortedAndFilteredFighters"></FightersTable>
+  <vScroll></vScroll>
 </template>
