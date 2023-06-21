@@ -22,8 +22,6 @@ bin/
 /nbdist/
 /.nb-gradle/
 
-*.json
-*.html
 
 ### VS Code ###
 .vscode/

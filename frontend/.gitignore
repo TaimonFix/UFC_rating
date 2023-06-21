@@ -1,3 +1,6 @@
+/parsing
+.json
+
 # Logs
 logs
 *.log
@@ -26,6 +29,3 @@ coverage
 *.njsproj
 *.sln
 *.sw?
-
-*.json
-*.html
